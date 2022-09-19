@@ -1,27 +1,18 @@
 import 'package:flutter/material.dart';
+import './screen/FirstScreen.dart';
+import './screen/SecondScreen.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(color: Colors.white),
-      child: const Center(
-        child: Text(
-          'Hello World!',
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-            fontSize: 32,
-            color: Colors.black87,
-          ),
-        ),
-      ),
-    );
-  }
+  runApp(
+    MaterialApp(
+      title: 'MaterialApp',
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const FirstScreen(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/second': (context) => const SecondScreen(),
+      },
+    ),
+  );
 }
